@@ -9,18 +9,25 @@ screen = pygame.display.set_mode((800, 600))
 
 # Define a dictionary mapping visemes to their corresponding image filenames
 viseme_images = {
-    'Closed': pygame.image.load('closed_mouth.png'),
-    'Open': pygame.image.load('open_mouth.png'),
-    'Smile': pygame.image.load('smile.png'),
+    'Open': pygame.image.load('AE.png'),
+    'FFFF': pygame.image.load('FV.png'),
+    'Em': pygame.image.load('MBP.png'),
+    'Ow': pygame.image.load('O.png'),
+    'ST': pygame.image.load('TS.png'),
+    'Cute': pygame.image.load("UQ.png"),
+    'Were': pygame.iamge.load('WR.png')
     # Add more mappings as needed
 }
 
 # Define a basic phoneme-to-viseme mapping (you should expand this dictionary)
 phoneme_to_viseme = {
-    'HH': 'Closed',
-    'EH': 'Open',
-    'L': 'Smile',
-    'OW': 'Open',
+    'AE': 'Open',
+    'FV': 'FFFF',
+    'MBP': 'Em',
+    'O': 'Ow',
+    'TS': 'ST',
+    'UQ': 'Cute',
+    'WR': 'Were'
     # Add more mappings as needed
 }
 
