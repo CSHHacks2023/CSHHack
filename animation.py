@@ -6,7 +6,7 @@ import os
 pygame.init()
 
 # Create a Pygame window
-screen = pygame.display.set_mode((800, 600))
+screen = pygame.display.set_mode((800, 800))
 
 # Load viseme images
 viseme_images = []
@@ -52,7 +52,7 @@ def speak_and_animate(text):
     pygame.quit()
 
 # Example usage:
-text_to_speak = "Hello, I am a talking face!"
+text_to_speak = "Hello, my name is EcoBuddy!"
 speak_and_animate(text_to_speak)
 
 # viseme_mapping = {
