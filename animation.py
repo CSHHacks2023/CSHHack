@@ -1,5 +1,6 @@
-from gtts import gTTS
 import pygame
+from gtts import gTTS
+import os
 
 # Initialize Pygame
 pygame.init()
@@ -7,63 +8,29 @@ pygame.init()
 # Create a Pygame window
 screen = pygame.display.set_mode((800, 600))
 
-# Define a dictionary mapping visemes to their corresponding image filenames
-viseme_images = {
-    'Open': pygame.image.load('AE.png'),
-    'FFFF': pygame.image.load('FV.png'),
-    'Em': pygame.image.load('MBP.png'),
-    'Ow': pygame.image.load('O.png'),
-    'ST': pygame.image.load('TS.png'),
-    'Cute': pygame.image.load("UQ.png"),
-    'Were': pygame.iamge.load('WR.png')
-    # Add more mappings as needed
-}
+# Load viseme images
+viseme_images = []
+viseme_dir = 'visemes'  # Directory containing viseme images
+for filename in sorted(os.listdir(viseme_dir)):
+    if filename.endswith(".png"):
+        viseme_image = pygame.image.load(os.path.join(viseme_dir, filename))
+        print(f"Loaded image: {filename}")
+        viseme_images.append(viseme_image)
+        print(viseme_images)
 
-# Define a basic phoneme-to-viseme mapping (you should expand this dictionary)
-phoneme_to_viseme = {
-    'AE': 'Open',
-    'FV': 'FFFF',
-    'MBP': 'Em',
-    'O': 'Ow',
-    'TS': 'ST',
-    'UQ': 'Cute',
-    'WR': 'Were'
-    # Add more mappings as needed
-}
 
-# Create a function to map phonemes to visemes
-def map_phonemes_to_visemes(phonemes):
-    visemes = []
-    for phoneme in phonemes.split():
-        if phoneme in phoneme_to_viseme:
-            visemes.append(phoneme_to_viseme[phoneme])
-    return visemes
-
-# Create a function to animate the face based on visemes
-def animate_face(visemes):
-    running = True
-    clock = pygame.time.Clock()
-    current_frame = 0
-
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-
-        # Display the current viseme image on the screen
-        current_viseme = visemes[current_frame]
-        screen.blit(viseme_images[current_viseme], (0, 0))
-
-        pygame.display.flip()
+# Create a function to display a viseme image
+def display_viseme(viseme_image):
+    print("Displaying viseme image")
+    resized_image = pygame.transform.scale(viseme_image, (800, 600))  # Resize the image
+    screen.fill((255, 255, 255))  # Clear the screen
+    screen.blit(resized_image, (0, 0))  # Display the resized image
+    pygame.display.flip()
+# Create a function to animate the face
+def animate_face(viseme_images):
+    for viseme_image in viseme_images:
+        display_viseme(viseme_image)
         pygame.time.delay(500)  # Adjust the delay to control animation speed
-
-        current_frame += 1
-        if current_frame >= len(visemes):
-            current_frame = 0
-
-        clock.tick(10)  # Limit the frame rate
-
-    pygame.quit()
 
 # Create a function to speak text and animate visemes
 def speak_and_animate(text):
@@ -71,25 +38,32 @@ def speak_and_animate(text):
     tts = gTTS(text)
     tts.save("output.mp3")
 
-    # Load the audio
+    # Play the audio
     pygame.mixer.init()
     pygame.mixer.music.load("output.mp3")
-
-    # Map phonemes to visemes
-    phonemes = tts.phonemes
-    visemes = map_phonemes_to_visemes(phonemes)
-
-    # Start audio playback
     pygame.mixer.music.play()
 
     # Animate the face
-    animate_face(visemes)
+    animate_face(viseme_images)
 
     # Wait for the speech to finish
-    pygame.mixer.music.queue("output.mp3")  # Ensure that the audio finishes playing
+    pygame.mixer.music.queue("output.mp3")
 
     pygame.quit()
 
 # Example usage:
 text_to_speak = "Hello, I am a talking face!"
 speak_and_animate(text_to_speak)
+
+# viseme_mapping = {
+#     'Open': pygame.image.load('images/AE.png'),
+#     'FFFF': pygame.image.load('images/FV.png'),
+#     'Em': pygame.image.load('images/MBP.png'),
+#     'Ow': pygame.image.load('images/O.png'),
+#     'ST': pygame.image.load('images/TS.png'),
+#     'Cute': pygame.image.load('images/UQ.png'),
+#     'Were': pygame.image.load('images/WR.png')
+#     # Add more mappings as needed
+# }
+
+
