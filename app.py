@@ -12,6 +12,10 @@ def home():
 def contact():
     return render_template('contact.html')
 
+@app.route('/pygame')
+def pygame():
+    return render_template('pygame.html')
+
 @app.route('/carbon')
 def carbon():
     return render_template('carbon.html')
