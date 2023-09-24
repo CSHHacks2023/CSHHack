@@ -1,7 +1,5 @@
 from flask import Flask, render_template, Response
-import pygame
-import animation
-import io
+
 
 app = Flask(__name__)
 
