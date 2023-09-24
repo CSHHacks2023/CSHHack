@@ -3,19 +3,22 @@ from gtts import gTTS
 import os
 import nltk
 from nltk.corpus import cmudict
-
+import openai
 # Initialize Pygame
+api_key = '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'
+openai.api_key = api_key
+
 pygame.init()
 
-# Create a Pygame window
-screen = pygame.display.set_mode((800, 800))
+# # Create a Pygame window
+# screen = pygame.display.set_mode((800, 800))
 
-# Load viseme images
-viseme_dir = 'visemes'  # Directory containing viseme images
-viseme_images = [pygame.image.load(os.path.join(viseme_dir, filename)) for filename in sorted(os.listdir(viseme_dir)) if filename.endswith(".png")]
+# # Load viseme images
+# viseme_dir = 'visemes'  # Directory containing viseme images
+# viseme_images = [pygame.image.load(os.path.join(viseme_dir, filename)) for filename in sorted(os.listdir(viseme_dir)) if filename.endswith(".png")]
 
-# Load CMU Pronouncing Dictionary
-cmu_dict = cmudict.dict()
+# # Load CMU Pronouncing Dictionary
+# cmu_dict = cmudict.dict()
 
 # Define a function to map phonemes to viseme images
 def map_phoneme_to_viseme(phoneme):
@@ -79,13 +82,13 @@ def map_phoneme_to_viseme(phoneme):
     return viseme_mapping.get(phoneme, viseme_images[0])
 
 
-# Create a function to display a viseme image
-def display_viseme(viseme_image):
-    print(viseme_image)
-    resized_image = pygame.transform.scale(viseme_image, (800, 800))  # Resize the image
-    screen.fill((255, 255, 255))  # Clear the screen
-    screen.blit(resized_image, (0, 0))  # Display the resized image
-    pygame.display.flip()
+# # Create a function to display a viseme image
+# def display_viseme(viseme_image):
+#     print(viseme_image)
+#     resized_image = pygame.transform.scale(viseme_image, (800, 800))  # Resize the image
+#     screen.fill((255, 255, 255))  # Clear the screen
+#     screen.blit(resized_image, (0, 0))  # Display the resized image
+#     pygame.display.flip()
 
 # Create a function to animate the face based on phonemes
 def animate_face(phoneme_sequence):
@@ -101,34 +104,34 @@ def speak_and_animate(text):
     tts = gTTS(text)
     tts.save("output.mp3")
 
-    # Play the audio
-    pygame.mixer.init()
-    pygame.mixer.music.load("output.mp3")
-    pygame.mixer.music.play()
+#     # Play the audio
+#     pygame.mixer.init()
+#     pygame.mixer.music.load("output.mp3")
+#     pygame.mixer.music.play()
 
-    # Convert text to phonemes
-    phoneme_sequence = text_to_phonemes(text)
+#     # Convert text to phonemes
+#     phoneme_sequence = text_to_phonemes(text)
 
-    # Animate the face based on phonemes
-    animate_face(phoneme_sequence)
+#     # Animate the face based on phonemes
+#     animate_face(phoneme_sequence)
 
-    # Wait for the speech to finish
-    pygame.mixer.music.queue("output.mp3")
+#     # Wait for the speech to finish
+#     pygame.mixer.music.queue("output.mp3")
 
-    pygame.quit()
+#     pygame.quit()
 
-# Define a function to convert text to phonemes
-def text_to_phonemes(text):
-    text = text.lower()  # Convert text to lowercase
-    words = nltk.word_tokenize(text)
-    phoneme_sequence = []
+# # Define a function to convert text to phonemes
+# def text_to_phonemes(text):
+#     text = text.lower()  # Convert text to lowercase
+#     words = nltk.word_tokenize(text)
+#     phoneme_sequence = []
 
-    for word in words:
-        if word in cmu_dict:
-            phonemes = cmu_dict[word][0]
-            phoneme_sequence.extend(phonemes)
-    print("sequenc" + str(phoneme_sequence))
-    return phoneme_sequence
+#     for word in words:
+#         if word in cmu_dict:
+#             phonemes = cmu_dict[word][0]
+#             phoneme_sequence.extend(phonemes)
+#     print("sequenc" + str(phoneme_sequence))
+#     return phoneme_sequence
 
 # Example usage:
 text_to_speak = "Hello, my name is EcoBuddy! Nice to meet you"
