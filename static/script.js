@@ -25,12 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const driveButton4 = document.querySelector(".button12");
 
     ecoFriendlyStoreButton.addEventListener("click", function () {
-        carbonFootprint -= 1; // Decrement the carbon footprint
+        carbonFootprint -= 2; // Decrement the carbon footprint
         updateCarbonDisplay();
     });
 
     driveButton.addEventListener("click", function () {
-        carbonFootprint += 1; // Increment the carbon footprint
+        carbonFootprint += 2; // Increment the carbon footprint
         updateCarbonDisplay();
     });
 
@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     driveButton2.addEventListener("click", function () {
-        carbonFootprint += 1; // Increment the carbon footprint
+        carbonFootprint += 5; // Increment the carbon footprint
         updateCarbonDisplay();
     });
 
     ecoFriendlyButton3.addEventListener("click", function () {
-        carbonFootprint -= 1; // Decrement the carbon footprint
+        carbonFootprint -= 2; // Decrement the carbon footprint
         updateCarbonDisplay();
     });
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     driveButton4.addEventListener("click", function () {
-        carbonFootprint += 1; // Increment the carbon footprint
+        carbonFootprint += 2; // Increment the carbon footprint
         updateCarbonDisplay();
     });
 
