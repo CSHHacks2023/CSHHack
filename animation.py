@@ -25,18 +25,6 @@ def map_phoneme_to_viseme(phoneme):
     # Define your mapping logic here
     # Example: 'AA' maps to the first viseme image
     viseme_mapping = {
-        # AEI :0
-        # BMP : 1
-        # CDGKNRSTXYZ : 2
-        # CHJSH : 3
-        # EE : 4
-        # FV : 5
-        # L : 6
-        # N : 7
-        # O : 8
-        # OW : 9
-        # TH : 10
-        # U : 11
         'HH1': viseme_images[0],
         'AA1': viseme_images[0],
         'AH1': viseme_images[0],
@@ -135,10 +123,10 @@ def animate_face(phoneme_sequence):
         print("phoneme" + phoneme)
         viseme_image = map_phoneme_to_viseme(phoneme)
         display_viseme(viseme_image)
-        pygame.time.delay(125)  # Adjust the delay to control animation speed
+        pygame.time.delay(500)  # Adjust the delay to control animation speed
 # Create a function to spea0k text, convert to phonemes, and animate visemes
 def speak_and_animate(text):
-    # Generate speech using gTTS
+    tts = gTTS(text, lang='en')    # Generate speech using gTTS
     tts = gTTS(text)
     tts.save("output.mp3")
 
@@ -158,6 +146,8 @@ def speak_and_animate(text):
 
     pygame.quit()
 
+
+
 # Define a function to convert text to phonemes
 def text_to_phonemes(text):
     text = text.lower()  # Convert text to lowercase
@@ -172,5 +162,5 @@ def text_to_phonemes(text):
     return phoneme_sequence
 
 # Example usage:
-text_to_speak = "Hello, my name is EcoBuddy! Nice to meet you. I am adding more words to see what works out"
+text_to_speak = "Hello my name is Eco Buddy"
 speak_and_animate(text_to_speak)
