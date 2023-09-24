@@ -5,10 +5,10 @@ import io
 
 app = Flask(__name__)
 
-# # Initialize Pygame
+# Initialize Pygame
 # pygame.init()
 
-# # Create a Pygame window and surface
+# Create a Pygame window and surface
 # screen = pygame.display.set_mode((800, 800))
 
 # Route to serve the web page
@@ -28,7 +28,7 @@ def tab2():
 def tab3():
     return render_template('tab3.html')
 
-# # Route to display the Pygame component on a web page
+# Route to display the Pygame component on a web page
 # @app.route('/pygame.html')
 # def pygame_component():
 #     animation.run_pygame_logic()
