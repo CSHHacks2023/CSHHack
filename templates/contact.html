@@ -1,8 +1,42 @@
-{% extends "base.html" %}
-
-{% block title %}tab1{% endblock %}
-
-{% block content %}
-<h1>Welcome to the contact Page</h1>
-<p>Insert content here.</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="static/app.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+    <main>
+        <section class="contact-form">
+            <div class="section-title-group"><h2 class="section-heading centered">Contact US</h2><div class="section-subheading center">Any Questions, Comments, Concerns?</div></div>
+            <p class="paragraph">We value your input and are committed to fostering a community dedicated to sustainable living. If you have questions, suggestions, or simply want to connect with like-minded individuals, we'd love to hear from you. Please feel free to reach out to us using the contact form below. Together, we can make a positive impact on our local environment and create a more sustainable future.</p>
+            <form id="contact-us-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name..." required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email..." required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
+                
+                <input type="submit" value="Send Carrier Pigeon" data-wait="Feeding the Pigeon...." class="button w-button">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <section class="about">
+            <h2>About Earth's Echo</h2>
+            <p>We are a group of students in Rochester, NY, passionate about sustainability, and we're dedicated to providing you with practical tips, informative articles, and resources to help you make a difference. Whether it's reducing waste, conserving energy, supporting local businesses, or adopting eco-friendly practices, we hope to guide you on your sustainability journey.</p>
+        </section>
+        <section class="solar-spotlight">
+            <h2>Solar Spotlight</h2>
+            <p><a href="https://littlesalmon.co/">Little Salmon</a></p>
+            <p><a href="https://www.etsy.com/shop/Zufflebees">Zufflebees</a></p>
+        </section>
+    </footer>
+</body>
+</html>
