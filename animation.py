@@ -10,64 +10,102 @@ openai.api_key = api_key
 
 pygame.init()
 
-# # Create a Pygame window
-# screen = pygame.display.set_mode((800, 800))
+# Create a Pygame window
+screen = pygame.display.set_mode((800, 800))
 
-# # Load viseme images
-# viseme_dir = 'visemes'  # Directory containing viseme images
-# viseme_images = [pygame.image.load(os.path.join(viseme_dir, filename)) for filename in sorted(os.listdir(viseme_dir)) if filename.endswith(".png")]
+# Load viseme images
+viseme_dir = 'visemes'  # Directory containing viseme images
+viseme_images = [pygame.image.load(os.path.join(viseme_dir, filename)) for filename in sorted(os.listdir(viseme_dir)) if filename.endswith(".png")]
 
-# # Load CMU Pronouncing Dictionary
-# cmu_dict = cmudict.dict()
+# Load CMU Pronouncing Dictionary
+cmu_dict = cmudict.dict()
 
 # Define a function to map phonemes to viseme images
 def map_phoneme_to_viseme(phoneme):
     # Define your mapping logic here
     # Example: 'AA' maps to the first viseme image
     viseme_mapping = {
+        # AEI :0
+        # BMP : 1
+        # CDGKNRSTXYZ : 2
+        # CHJSH : 3
+        # EE : 4
+        # FV : 5
+        # L : 6
+        # N : 7
+        # O : 8
+        # OW : 9
+        # TH : 10
+        # U : 11
+        'HH1': viseme_images[0],
+        'AA1': viseme_images[0],
+        'AH1': viseme_images[0],
+        'AO1': viseme_images[8],
+        'AW1': viseme_images[9],
+        'AY1': viseme_images[4],
+        'B1': viseme_images[1],
+        'CH1': viseme_images[3],
+        'D1': viseme_images[2],
+        'DH1': viseme_images[2],
+        'EH1': viseme_images[0],
+        'ER1': viseme_images[2],
+        'EY1': viseme_images[4],
+        'F1': viseme_images[5],
+        'G1': viseme_images[2],
+        'IH1': viseme_images[0],
+        'IY1': viseme_images[4],
+        'JH1': viseme_images[3],
+        'K1': viseme_images[2],
+        'NG1': viseme_images[7],
+        'OW1': viseme_images[8],
+        'OY1': viseme_images[9],
+        'P1': viseme_images[1],
+        'R1': viseme_images[3],
+        'S1': viseme_images[2],
+        'SH1': viseme_images[3],
+        'T1': viseme_images[2],
+        'TH1': viseme_images[10],
+        'UH1': viseme_images[11],
+        'UW1': viseme_images[11],
+        'V1': viseme_images[5],
+        'W1': viseme_images[9],
+        'Y1': viseme_images[2],
+
+   
         'HH': viseme_images[0],
-        'AA': viseme_images[6],
-        'AH': viseme_images[4],
-        'AO': viseme_images[4],
-        'AW': viseme_images[4],
-        'AY': viseme_images[6],
+        'AA': viseme_images[0],
+        'AH': viseme_images[0],
+        'AO': viseme_images[8],
+        'AW': viseme_images[9],
+        'AY': viseme_images[4],
         'B': viseme_images[1],
-        'CH': viseme_images[2],
+        'CH': viseme_images[3],
         'D': viseme_images[2],
-        'DH': viseme_images[5],
+        'DH': viseme_images[2],
         'EH': viseme_images[0],
-        'ER': viseme_images[3],
-        'EY': viseme_images[0],
+        'ER': viseme_images[2],
+        'EY': viseme_images[4],
         'F': viseme_images[5],
         'G': viseme_images[2],
         'IH': viseme_images[0],
-        'IY': viseme_images[1],
-        'JH': viseme_images[2],
+        'IY': viseme_images[4],
+        'JH': viseme_images[3],
         'K': viseme_images[2],
-        'NG': viseme_images[2],
-        'OW': viseme_images[4],
-        'OY': viseme_images[3],
+        'NG': viseme_images[7],
+        'OW': viseme_images[8],
+        'OY': viseme_images[9],
         'P': viseme_images[1],
-        'R': viseme_images[4],
+        'R': viseme_images[3],
         'S': viseme_images[2],
-        'SH': viseme_images[2],
-        'T': viseme_images[5],
-        'TH': viseme_images[5],
-        'UH': viseme_images[5],
-        'UW': viseme_images[5],
-        'V': viseme_images[6],
-        'W': viseme_images[4],
+        'SH': viseme_images[3],
+        'T': viseme_images[2],
+        'TH': viseme_images[10],
+        'UH': viseme_images[11],
+        'UW': viseme_images[11],
+        'V': viseme_images[5],
+        'W': viseme_images[9],
         'Y': viseme_images[2],
-        'ZH': viseme_images[2],
-        'AH0': viseme_images[0],
-        'L': viseme_images[7],
-        'OW1': viseme_images[6],
-        'M': viseme_images[1],
-        'AY1': viseme_images[0],
-        'N': viseme_images[7],
-        'EY1': viseme_images[0],
-        'IH1' : viseme_images[0],
-        'Z' : viseme_images[2],
+
         'AE': viseme_images[0],
         'MBP': viseme_images[1],
         'TS': viseme_images[2],
@@ -82,13 +120,13 @@ def map_phoneme_to_viseme(phoneme):
     return viseme_mapping.get(phoneme, viseme_images[0])
 
 
-# # Create a function to display a viseme image
-# def display_viseme(viseme_image):
-#     print(viseme_image)
-#     resized_image = pygame.transform.scale(viseme_image, (800, 800))  # Resize the image
-#     screen.fill((255, 255, 255))  # Clear the screen
-#     screen.blit(resized_image, (0, 0))  # Display the resized image
-#     pygame.display.flip()
+# Create a function to display a viseme image
+def display_viseme(viseme_image):
+    print(viseme_image)
+    resized_image = pygame.transform.scale(viseme_image, (800, 800))  # Resize the image
+    screen.fill((255, 255, 255))  # Clear the screen
+    screen.blit(resized_image, (0, 0))  # Display the resized image
+    pygame.display.flip()
 
 # Create a function to animate the face based on phonemes
 def animate_face(phoneme_sequence):
@@ -97,42 +135,42 @@ def animate_face(phoneme_sequence):
         print("phoneme" + phoneme)
         viseme_image = map_phoneme_to_viseme(phoneme)
         display_viseme(viseme_image)
-        pygame.time.delay(155)  # Adjust the delay to control animation speed
-# Create a function to speak text, convert to phonemes, and animate visemes
+        pygame.time.delay(125)  # Adjust the delay to control animation speed
+# Create a function to spea0k text, convert to phonemes, and animate visemes
 def speak_and_animate(text):
     # Generate speech using gTTS
     tts = gTTS(text)
     tts.save("output.mp3")
 
-#     # Play the audio
-#     pygame.mixer.init()
-#     pygame.mixer.music.load("output.mp3")
-#     pygame.mixer.music.play()
+    # Play the audio
+    pygame.mixer.init()
+    pygame.mixer.music.load("output.mp3")
+    pygame.mixer.music.play()
 
-#     # Convert text to phonemes
-#     phoneme_sequence = text_to_phonemes(text)
+    # Convert text to phonemes
+    phoneme_sequence = text_to_phonemes(text)
 
-#     # Animate the face based on phonemes
-#     animate_face(phoneme_sequence)
+    # Animate the face based on phonemes
+    animate_face(phoneme_sequence)
 
-#     # Wait for the speech to finish
-#     pygame.mixer.music.queue("output.mp3")
+    # Wait for the speech to finish
+    pygame.mixer.music.queue("output.mp3")
 
-#     pygame.quit()
+    pygame.quit()
 
-# # Define a function to convert text to phonemes
-# def text_to_phonemes(text):
-#     text = text.lower()  # Convert text to lowercase
-#     words = nltk.word_tokenize(text)
-#     phoneme_sequence = []
+# Define a function to convert text to phonemes
+def text_to_phonemes(text):
+    text = text.lower()  # Convert text to lowercase
+    words = nltk.word_tokenize(text)
+    phoneme_sequence = []
 
-#     for word in words:
-#         if word in cmu_dict:
-#             phonemes = cmu_dict[word][0]
-#             phoneme_sequence.extend(phonemes)
-#     print("sequenc" + str(phoneme_sequence))
-#     return phoneme_sequence
+    for word in words:
+        if word in cmu_dict:
+            phonemes = cmu_dict[word][0]
+            phoneme_sequence.extend(phonemes)
+    print("sequenc" + str(phoneme_sequence))
+    return phoneme_sequence
 
 # Example usage:
-text_to_speak = "Hello, my name is EcoBuddy! Nice to meet you"
+text_to_speak = "Hello, my name is EcoBuddy! Nice to meet you. I am adding more words to see what works out"
 speak_and_animate(text_to_speak)

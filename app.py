@@ -16,9 +16,9 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/tab1')
-def tab1():
-    return render_template('tab1.html')
+# @app.route('/tab1')
+# def tab1():
+#     return render_template('tab1.html')
 
 @app.route('/tab2')
 def tab2():
