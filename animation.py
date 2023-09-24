@@ -3,8 +3,11 @@ from gtts import gTTS
 import os
 import nltk
 from nltk.corpus import cmudict
-
+import openai
 # Initialize Pygame
+api_key = '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'
+openai.api_key = api_key
+
 pygame.init()
 
 # Create a Pygame window
@@ -22,49 +25,87 @@ def map_phoneme_to_viseme(phoneme):
     # Define your mapping logic here
     # Example: 'AA' maps to the first viseme image
     viseme_mapping = {
+        # AEI :0
+        # BMP : 1
+        # CDGKNRSTXYZ : 2
+        # CHJSH : 3
+        # EE : 4
+        # FV : 5
+        # L : 6
+        # N : 7
+        # O : 8
+        # OW : 9
+        # TH : 10
+        # U : 11
+        'HH1': viseme_images[0],
+        'AA1': viseme_images[0],
+        'AH1': viseme_images[0],
+        'AO1': viseme_images[8],
+        'AW1': viseme_images[9],
+        'AY1': viseme_images[4],
+        'B1': viseme_images[1],
+        'CH1': viseme_images[3],
+        'D1': viseme_images[2],
+        'DH1': viseme_images[2],
+        'EH1': viseme_images[0],
+        'ER1': viseme_images[2],
+        'EY1': viseme_images[4],
+        'F1': viseme_images[5],
+        'G1': viseme_images[2],
+        'IH1': viseme_images[0],
+        'IY1': viseme_images[4],
+        'JH1': viseme_images[3],
+        'K1': viseme_images[2],
+        'NG1': viseme_images[7],
+        'OW1': viseme_images[8],
+        'OY1': viseme_images[9],
+        'P1': viseme_images[1],
+        'R1': viseme_images[3],
+        'S1': viseme_images[2],
+        'SH1': viseme_images[3],
+        'T1': viseme_images[2],
+        'TH1': viseme_images[10],
+        'UH1': viseme_images[11],
+        'UW1': viseme_images[11],
+        'V1': viseme_images[5],
+        'W1': viseme_images[9],
+        'Y1': viseme_images[2],
+
+   
         'HH': viseme_images[0],
-        'AA': viseme_images[6],
-        'AH': viseme_images[4],
-        'AO': viseme_images[4],
-        'AW': viseme_images[4],
-        'AY': viseme_images[6],
+        'AA': viseme_images[0],
+        'AH': viseme_images[0],
+        'AO': viseme_images[8],
+        'AW': viseme_images[9],
+        'AY': viseme_images[4],
         'B': viseme_images[1],
-        'CH': viseme_images[2],
+        'CH': viseme_images[3],
         'D': viseme_images[2],
-        'DH': viseme_images[5],
+        'DH': viseme_images[2],
         'EH': viseme_images[0],
-        'ER': viseme_images[3],
-        'EY': viseme_images[0],
+        'ER': viseme_images[2],
+        'EY': viseme_images[4],
         'F': viseme_images[5],
         'G': viseme_images[2],
         'IH': viseme_images[0],
-        'IY': viseme_images[1],
-        'JH': viseme_images[2],
+        'IY': viseme_images[4],
+        'JH': viseme_images[3],
         'K': viseme_images[2],
-        'NG': viseme_images[2],
-        'OW': viseme_images[4],
-        'OY': viseme_images[3],
+        'NG': viseme_images[7],
+        'OW': viseme_images[8],
+        'OY': viseme_images[9],
         'P': viseme_images[1],
-        'R': viseme_images[4],
+        'R': viseme_images[3],
         'S': viseme_images[2],
-        'SH': viseme_images[2],
-        'T': viseme_images[5],
-        'TH': viseme_images[5],
-        'UH': viseme_images[5],
-        'UW': viseme_images[5],
-        'V': viseme_images[6],
-        'W': viseme_images[4],
+        'SH': viseme_images[3],
+        'T': viseme_images[2],
+        'TH': viseme_images[10],
+        'UH': viseme_images[11],
+        'UW': viseme_images[11],
+        'V': viseme_images[5],
+        'W': viseme_images[9],
         'Y': viseme_images[2],
-        'ZH': viseme_images[2],
-        'AH0': viseme_images[0],
-        'L': viseme_images[7],
-        'OW1': viseme_images[6],
-        'M': viseme_images[1],
-        'AY1': viseme_images[0],
-        'N': viseme_images[7],
-        'EY1': viseme_images[0],
-        'IH1' : viseme_images[0],
-        'Z' : viseme_images[2],
+
         'AE': viseme_images[0],
         'MBP': viseme_images[1],
         'TS': viseme_images[2],
@@ -94,8 +135,8 @@ def animate_face(phoneme_sequence):
         print("phoneme" + phoneme)
         viseme_image = map_phoneme_to_viseme(phoneme)
         display_viseme(viseme_image)
-        pygame.time.delay(155)  # Adjust the delay to control animation speed
-# Create a function to speak text, convert to phonemes, and animate visemes
+        pygame.time.delay(125)  # Adjust the delay to control animation speed
+# Create a function to spea0k text, convert to phonemes, and animate visemes
 def speak_and_animate(text):
     # Generate speech using gTTS
     tts = gTTS(text)
@@ -131,5 +172,5 @@ def text_to_phonemes(text):
     return phoneme_sequence
 
 # Example usage:
-text_to_speak = "Hello, my name is EcoBuddy! Nice to meet you"
+text_to_speak = "Hello, my name is EcoBuddy! Nice to meet you. I am adding more words to see what works out"
 speak_and_animate(text_to_speak)
