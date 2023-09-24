@@ -16,17 +16,21 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/tab1')
-def tab1():
-    return render_template('tab1.html')
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
-@app.route('/tab2')
-def tab2():
-    return render_template('tab2.html')
+@app.route('/carbon')
+def carbon():
+    return render_template('carbon.html')
 
-@app.route('/tab3')
-def tab3():
-    return render_template('tab3.html')
+@app.route('/news')
+def news():
+    return render_template('news.html')
+  
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 # Route to display the Pygame component on a web page
 # @app.route('/pygame.html')
