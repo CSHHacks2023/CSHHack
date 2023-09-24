@@ -3,13 +3,7 @@ from flask import Flask, render_template, Response, request, jsonify
 
 app = Flask(__name__)
 
-# Initialize Pygame
-# pygame.init()
 
-# Create a Pygame window and surface
-# screen = pygame.display.set_mode((800, 800))
-
-# Route to serve the web page
 @app.route('/')
 def home():
     return render_template('home.html')
