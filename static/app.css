@@ -273,9 +273,46 @@ nameborder{
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.button6 {
+    text-align: center;
+    padding: 15px;
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Style for button on hover */
 .button:hover {
     background-color: #3e624a;
+}
+
+.header1 {
+    margin-top: 5px;
+    background-color: #8abc9d;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative; /* Add this line to position the carbon counter */
+}
+
+/* Adjust the CSS for the carbon counter */
+
+.carbon-counter {
+    background-color: #4f7d5f; /* Darker green color */
+    border: 2px solid #8abc9d;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px; /* Adjust as needed to position it */
+    font-size: 20px;
+    display: inline-block; /* Make it inline-block to match text size */
+    color: white; /* Text color */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add box shadow for shading */
 }
