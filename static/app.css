@@ -343,15 +343,16 @@ nameborder{
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Hover effect */
+.button12:hover {
+    background-color: #FF3333; /* Darker green color on hover */
+}
+
 /* Click (active) effect */
 .button12:active {
     background-color: #990000; /* Even darker green color when clicked */
 }
 
-/* Hover effect */
-.button12:hover {
-    background-color: #FF3333; /* Darker green color on hover */
-}
 
 .button8 {
     text-align: center;
@@ -365,14 +366,15 @@ nameborder{
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Click (active) effect */
-.button8:active {
-    background-color: #990000; /* Even darker green color when clicked */
-}
 
 /* Hover effect */
 .button8:hover {
     background-color: #FF3333; /* Darker green color on hover */
+}
+
+/* Click (active) effect */
+.button8:active {
+    background-color: #990000; /* Even darker green color when clicked */
 }
 .button10 {
     text-align: center;
@@ -386,16 +388,16 @@ nameborder{
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Click (active) effect */
-.button10:active {
-    background-color: #990000; /* Even darker green color when clicked */
-}
 
 /* Hover effect */
 .button10:hover {
     background-color: #FF3333; /* Darker green color on hover */
 }
 
+/* Click (active) effect */
+.button10:active {
+    background-color: #990000; /* Even darker green color when clicked */
+}
 
 
 .button7 {
