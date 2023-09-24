@@ -1,11 +1,14 @@
-# import pygame
-# from gtts import gTTS
-# import os
-# import nltk
-# from nltk.corpus import cmudict
+import pygame
+from gtts import gTTS
+import os
+import nltk
+from nltk.corpus import cmudict
+import openai
+# Initialize Pygame
+api_key = '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'
+openai.api_key = api_key
 
-# # Initialize Pygame
-# pygame.init()
+pygame.init()
 
 # # Create a Pygame window
 # screen = pygame.display.set_mode((800, 800))
@@ -17,66 +20,66 @@
 # # Load CMU Pronouncing Dictionary
 # cmu_dict = cmudict.dict()
 
-# # Define a function to map phonemes to viseme images
-# def map_phoneme_to_viseme(phoneme):
-#     # Define your mapping logic here
-#     # Example: 'AA' maps to the first viseme image
-#     viseme_mapping = {
-#         'HH': viseme_images[0],
-#         'AA': viseme_images[6],
-#         'AH': viseme_images[4],
-#         'AO': viseme_images[4],
-#         'AW': viseme_images[4],
-#         'AY': viseme_images[6],
-#         'B': viseme_images[1],
-#         'CH': viseme_images[2],
-#         'D': viseme_images[2],
-#         'DH': viseme_images[5],
-#         'EH': viseme_images[0],
-#         'ER': viseme_images[3],
-#         'EY': viseme_images[0],
-#         'F': viseme_images[5],
-#         'G': viseme_images[2],
-#         'IH': viseme_images[0],
-#         'IY': viseme_images[1],
-#         'JH': viseme_images[2],
-#         'K': viseme_images[2],
-#         'NG': viseme_images[2],
-#         'OW': viseme_images[4],
-#         'OY': viseme_images[3],
-#         'P': viseme_images[1],
-#         'R': viseme_images[4],
-#         'S': viseme_images[2],
-#         'SH': viseme_images[2],
-#         'T': viseme_images[5],
-#         'TH': viseme_images[5],
-#         'UH': viseme_images[5],
-#         'UW': viseme_images[5],
-#         'V': viseme_images[6],
-#         'W': viseme_images[4],
-#         'Y': viseme_images[2],
-#         'ZH': viseme_images[2],
-#         'AH0': viseme_images[0],
-#         'L': viseme_images[7],
-#         'OW1': viseme_images[6],
-#         'M': viseme_images[1],
-#         'AY1': viseme_images[0],
-#         'N': viseme_images[7],
-#         'EY1': viseme_images[0],
-#         'IH1' : viseme_images[0],
-#         'Z' : viseme_images[2],
-#         'AE': viseme_images[0],
-#         'MBP': viseme_images[1],
-#         'TS': viseme_images[2],
-#         'WR': viseme_images[3],
-#         'UQ': viseme_images[4],
-#         'FV': viseme_images[5],
-#         'O': viseme_images[6],
-#         'LN': viseme_images[7],
-#         # Add more mappings as needed
-#     }
-#     # Return the corresponding viseme image or a default image if not found
-#     return viseme_mapping.get(phoneme, viseme_images[0])
+# Define a function to map phonemes to viseme images
+def map_phoneme_to_viseme(phoneme):
+    # Define your mapping logic here
+    # Example: 'AA' maps to the first viseme image
+    viseme_mapping = {
+        'HH': viseme_images[0],
+        'AA': viseme_images[6],
+        'AH': viseme_images[4],
+        'AO': viseme_images[4],
+        'AW': viseme_images[4],
+        'AY': viseme_images[6],
+        'B': viseme_images[1],
+        'CH': viseme_images[2],
+        'D': viseme_images[2],
+        'DH': viseme_images[5],
+        'EH': viseme_images[0],
+        'ER': viseme_images[3],
+        'EY': viseme_images[0],
+        'F': viseme_images[5],
+        'G': viseme_images[2],
+        'IH': viseme_images[0],
+        'IY': viseme_images[1],
+        'JH': viseme_images[2],
+        'K': viseme_images[2],
+        'NG': viseme_images[2],
+        'OW': viseme_images[4],
+        'OY': viseme_images[3],
+        'P': viseme_images[1],
+        'R': viseme_images[4],
+        'S': viseme_images[2],
+        'SH': viseme_images[2],
+        'T': viseme_images[5],
+        'TH': viseme_images[5],
+        'UH': viseme_images[5],
+        'UW': viseme_images[5],
+        'V': viseme_images[6],
+        'W': viseme_images[4],
+        'Y': viseme_images[2],
+        'ZH': viseme_images[2],
+        'AH0': viseme_images[0],
+        'L': viseme_images[7],
+        'OW1': viseme_images[6],
+        'M': viseme_images[1],
+        'AY1': viseme_images[0],
+        'N': viseme_images[7],
+        'EY1': viseme_images[0],
+        'IH1' : viseme_images[0],
+        'Z' : viseme_images[2],
+        'AE': viseme_images[0],
+        'MBP': viseme_images[1],
+        'TS': viseme_images[2],
+        'WR': viseme_images[3],
+        'UQ': viseme_images[4],
+        'FV': viseme_images[5],
+        'O': viseme_images[6],
+        'LN': viseme_images[7],
+        # Add more mappings as needed
+    }
+    # Return the corresponding viseme image or a default image if not found
+    return viseme_mapping.get(phoneme, viseme_images[0])
 
 
 # # Create a function to display a viseme image
@@ -87,19 +90,19 @@
 #     screen.blit(resized_image, (0, 0))  # Display the resized image
 #     pygame.display.flip()
 
-# # Create a function to animate the face based on phonemes
-# def animate_face(phoneme_sequence):
-#     for phoneme in phoneme_sequence:
-#         # Map phoneme to viseme and display corresponding viseme image
-#         print("phoneme" + phoneme)
-#         viseme_image = map_phoneme_to_viseme(phoneme)
-#         display_viseme(viseme_image)
-#         pygame.time.delay(155)  # Adjust the delay to control animation speed
-# # Create a function to speak text, convert to phonemes, and animate visemes
-# def speak_and_animate(text):
-#     # Generate speech using gTTS
-#     tts = gTTS(text)
-#     tts.save("output.mp3")
+# Create a function to animate the face based on phonemes
+def animate_face(phoneme_sequence):
+    for phoneme in phoneme_sequence:
+        # Map phoneme to viseme and display corresponding viseme image
+        print("phoneme" + phoneme)
+        viseme_image = map_phoneme_to_viseme(phoneme)
+        display_viseme(viseme_image)
+        pygame.time.delay(155)  # Adjust the delay to control animation speed
+# Create a function to speak text, convert to phonemes, and animate visemes
+def speak_and_animate(text):
+    # Generate speech using gTTS
+    tts = gTTS(text)
+    tts.save("output.mp3")
 
 #     # Play the audio
 #     pygame.mixer.init()
@@ -130,6 +133,6 @@
 #     print("sequenc" + str(phoneme_sequence))
 #     return phoneme_sequence
 
-# # Example usage:
-# text_to_speak = "Hello, my name is EcoBuddy! Nice to meet you"
-# speak_and_animate(text_to_speak)
+# Example usage:
+text_to_speak = "Hello, my name is EcoBuddy! Nice to meet you"
+speak_and_animate(text_to_speak)
