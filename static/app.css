@@ -255,3 +255,27 @@ nameborder{
 
 
 }
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns in the grid */
+    gap: 20px; /* Gap between buttons */
+    justify-content: center; /* Center the grid horizontally */
+    align-items: center; /* Center the grid vertically */
+    margin-top: 20px; /* Add some top margin to separate from the header */
+}
+
+.button5 {
+    text-align: center;
+    padding: 15px;
+    background-color: #4f7d5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Style for button on hover */
+.button:hover {
+    background-color: #3e624a;
+}
