@@ -30,6 +30,9 @@ def news():
 def about():
     return render_template('about.html')
 
+@app.route('/rewards')
+def rewards():
+    return render_template('rewards.html')
 # Route to display the Pygame component on a web page
 # @app.route('/pygame.html')
 # def pygame_component():
