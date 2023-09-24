@@ -24,5 +24,14 @@ def news():
 def about():
     return render_template('about.html')
 
+@app.route('/rewards')
+def rewards():
+    return render_template('rewards.html')
+# Route to display the Pygame component on a web page
+# @app.route('/pygame.html')
+# def pygame_component():
+#     animation.run_pygame_logic()
+#     return "Pygame logic executed successfully"  # Customize the response as needed
+
 if __name__ == '__main__':
     app.run(debug=True)
