@@ -3,13 +3,7 @@ from flask import Flask, render_template, Response, request, jsonify
 
 app = Flask(__name__)
 
-# Initialize Pygame
-# pygame.init()
 
-# Create a Pygame window and surface
-# screen = pygame.display.set_mode((800, 800))
-
-# Route to serve the web page
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -17,6 +11,10 @@ def home():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/pygame')
+def pygame():
+    return render_template('pygame.html')
 
 @app.route('/carbon')
 def carbon():
@@ -30,6 +28,9 @@ def news():
 def about():
     return render_template('about.html')
 
+@app.route('/rewards')
+def rewards():
+    return render_template('rewards.html')
 # Route to display the Pygame component on a web page
 # @app.route('/pygame.html')
 # def pygame_component():

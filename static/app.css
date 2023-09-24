@@ -298,6 +298,26 @@ nameborder{
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Hover effect */
+.button5:hover {
+    background-color: #3e624a; /* Darker green color on hover */
+}
+
+/* Hover effect */
+.button6:hover {
+    background-color: #FF3333; /* Darker green color on hover */
+}
+
+/* Click (active) effect */
+.button5:active {
+    background-color: #2e4935; /* Even darker green color when clicked */
+}
+
+/* Click (active) effect */
+.button6:active {
+    background-color: #990000 /* Even darker green color when clicked */
+}
+
 .button6 {
     text-align: center;
     padding: 15px;
@@ -308,6 +328,140 @@ nameborder{
     cursor: pointer;
     font-size: 18px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.button12 {
+    text-align: center;
+    padding: 15px;
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Click (active) effect */
+.button12:active {
+    background-color: #990000; /* Even darker green color when clicked */
+}
+
+/* Hover effect */
+.button12:hover {
+    background-color: #FF3333; /* Darker green color on hover */
+}
+
+.button8 {
+    text-align: center;
+    padding: 15px;
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Click (active) effect */
+.button8:active {
+    background-color: #990000; /* Even darker green color when clicked */
+}
+
+/* Hover effect */
+.button8:hover {
+    background-color: #FF3333; /* Darker green color on hover */
+}
+.button10 {
+    text-align: center;
+    padding: 15px;
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Click (active) effect */
+.button10:active {
+    background-color: #990000; /* Even darker green color when clicked */
+}
+
+/* Hover effect */
+.button10:hover {
+    background-color: #FF3333; /* Darker green color on hover */
+}
+
+
+
+.button7 {
+    text-align: center;
+    padding: 15px;
+    background-color: #4f7d5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect */
+.button7:hover {
+    background-color: #3e624a; /* Darker green color on hover */
+}
+
+/* Click (active) effect */
+.button7:active {
+    background-color: #2e4935; /* Even darker green color when clicked */
+}
+
+.button9 {
+    text-align: center;
+    padding: 15px;
+    background-color: #4f7d5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect */
+.button9:hover {
+    background-color: #3e624a; /* Darker green color on hover */
+}
+
+/* Click (active) effect */
+.button9:active {
+    background-color: #2e4935; /* Even darker green color when clicked */
+}
+
+.button11 {
+    text-align: center;
+    padding: 15px;
+    background-color: #4f7d5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect */
+.button11:hover {
+    background-color: #3e624a; /* Darker green color on hover */
+}
+
+/* Click (active) effect */
+.button11:active {
+    background-color: #2e4935; /* Even darker green color when clicked */
 }
 
 /* Style for button on hover */

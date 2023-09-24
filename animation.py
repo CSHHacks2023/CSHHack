@@ -123,7 +123,7 @@ def animate_face(phoneme_sequence):
         print("phoneme" + phoneme)
         viseme_image = map_phoneme_to_viseme(phoneme)
         display_viseme(viseme_image)
-        pygame.time.delay(500)  # Adjust the delay to control animation speed
+        pygame.time.delay(120)  # Adjust the delay to control animation speed
 # Create a function to spea0k text, convert to phonemes, and animate visemes
 def speak_and_animate(text):
     tts = gTTS(text, lang='en')    # Generate speech using gTTS
@@ -144,8 +144,6 @@ def speak_and_animate(text):
     # Wait for the speech to finish
     pygame.mixer.music.queue("output.mp3")
 
-    pygame.quit()
-
 
 
 # Define a function to convert text to phonemes
@@ -162,5 +160,5 @@ def text_to_phonemes(text):
     return phoneme_sequence
 
 # Example usage:
-text_to_speak = "Hello my name is Eco Buddy"
+text_to_speak = "Hello! My name is Echo Buddy"
 speak_and_animate(text_to_speak)
